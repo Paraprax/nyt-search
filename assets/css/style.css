@@ -25,6 +25,7 @@ header {
     color: black;
     font-weight: bolder;
     padding-left: 5px;
+    padding-right: 5px;
     padding-bottom: 2px;
 }
 
@@ -32,4 +33,11 @@ input, select, textarea {
     color: chartreuse;
     background-color: black;
     caret-color: chartreuse;
+}
+
+button {
+    margin-top: 8px;
+    margin-bottom: 5px;
+    background-color: rgb(0, 288, 0);
+    font-weight: bolder;
 }
