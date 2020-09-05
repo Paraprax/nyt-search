@@ -13,10 +13,10 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- local js file -->
-    <script src="assets/javascript/main.js"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- local js file -->
+    <script src="assets/javascript/main.js"></script>
 </head>
 <body>
     <header><i class="fa fa-file mx-3"></i>New York Times Searchbot</header>
@@ -26,12 +26,12 @@
             <div class="col">
                 <div id="search-card" class="card mt-5"> 
                     Search Term:
-                    <input type="text">
+                    <input id="search-term" type="text">
 
                     Number of Results to Retrieve:
-                    <input type="text">
+                    <input id="num-of-results" type="text">
 
-                    <button>Search</button>
+                    <button id="search-button">Search</button>
                 </div>
             </div>
         </div>
@@ -39,6 +39,7 @@
             <div class="col">
                 <div id="results-card" class="card mt-5">
                     Results:
+                    <div id="articles-found"></div>
                 </div>
             </div>
         </div>
