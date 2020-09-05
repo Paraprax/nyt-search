@@ -45,17 +45,15 @@ $(document).ready(function() {
             pubDate = news.response.docs[i].pub_date;
             body = news.response.docs[i].snippet;
             webURL = news.response.docs[i].web_url;
-            console.log(headline);
-            console.log(byline);
-            console.log(pubDate);
-            console.log(body);
-            console.log(webURL);
+            resultsPrinter(headline, byline, pubDate, body, webURL);
         }
     };
 
     //function for updating the DOM with the formatted search results:
-    const resultsPrinter = (news) => {
-        //$('#results-card').html(news);
+    const resultsPrinter = (head, author, date, text, link) => {
+        var headline = $(`<h2>${head}</h2>`);
+        
+        $('#articles-found').prepend(headline);
         console.log();
     }
 
