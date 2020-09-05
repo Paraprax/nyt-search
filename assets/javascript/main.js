@@ -25,26 +25,32 @@ $(document).ready(function() {
         }).then(function(response) {
             console.log(response);
             //finally send the JSON results to be formatted by the designated function:
-            resultsFormatter(response);
+            resultsAnalyzer(response);
         });
     });
 
-    const resultsFormatter = (news) => {
+    const resultsAnalyzer = (news) => {
+        //empty the results div to fill with new results each time:
+        $('#articles-found').empty();
+
+        //vars to hold the desired info from the JSON array:
         console.log('results being formatted..');
-        var headline = "";
-        var byline = "";
-        var pubDate = "";
-        var body = "";
-        var webURL = "";
+        let headline = "";
+        let byline = "";
+        let pubDate = "";
+        let body = "";
+        let webURL = "";
 
         console.log(news.response.docs);
 
+        //loops through the whole JSON response and extracts specific info to vars:
         for (var i = 0; i < news.response.docs.length; i++) {
             headline = news.response.docs[i].headline.main;
             byline = news.response.docs[i].byline.original;
             pubDate = news.response.docs[i].pub_date;
             body = news.response.docs[i].snippet;
             webURL = news.response.docs[i].web_url;
+            //calls the resultsPrinter function && passes it the extracted info for printing to the DOM:
             resultsPrinter(headline, byline, pubDate, body, webURL);
         }
     };
@@ -54,11 +60,11 @@ $(document).ready(function() {
         var headline = $(`<h2><strong>${head}</strong></h2>`);
         var byline = $(`<h4><strong>${author}</strong></h4>`);
         var pubDate = $(`<h5>${date}</h5>`);
-        var article = $(`<h3>${text}</h3>`);
+        var article = $(`<h4 class="article-body">${text}</h4>`);
         var readmore = $(`<h6>Read more: <a href="${link}">${link}</a></h6>`);
         
+        //append each block to the div:
         $('#articles-found').append(headline, byline, pubDate, article, readmore);
-        console.log();
     }
 
 //end of docready function.
