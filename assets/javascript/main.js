@@ -10,7 +10,6 @@ $(document).ready(function() {
     //on-click event for 'search' button:
     $('#search-button').on('click', function() {
         console.log('searching');
-        console.log(APIkey.length);
 
         //assign user inputs to vars:
         searchTerm = $('#search-term').val();
@@ -25,11 +24,24 @@ $(document).ready(function() {
             method: 'GET'
         }).then(function(response) {
             console.log(response);
+            //finally send the JSON results to be formatted by the designated function:
+            resultsFormatter(response);
         });
-
-        //finally print the results to the DOM:
-        //resultsPrinter(results);
     });
+
+    const resultsFormatter = (news) => {
+        console.log('results being formatted..');
+        var headline = "";
+        var byline = "";
+        var body = "";
+
+        console.log(news.response.docs);
+
+        for (var i = 0; i < news.response.docs.length; i++) {
+            headline = news.response.docs[i].headline.main;
+            console.log(headline);
+        }
+    };
 
     //function for updating the DOM with the formatted search results:
     const resultsPrinter = (news) => {
