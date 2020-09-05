@@ -5,6 +5,10 @@ body {
     font-size: x-large;
 }
 
+a {
+    color: rgb(90, 255, 90);
+}
+
 header {
     color: black;
     /* background:

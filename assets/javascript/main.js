@@ -51,9 +51,13 @@ $(document).ready(function() {
 
     //function for updating the DOM with the formatted search results:
     const resultsPrinter = (head, author, date, text, link) => {
-        var headline = $(`<h2>${head}</h2>`);
+        var headline = $(`<h2><strong>${head}</strong></h2>`);
+        var byline = $(`<h4><strong>${author}</strong></h4>`);
+        var pubDate = $(`<h5>${date}</h5>`);
+        var article = $(`<h3>${text}</h3>`);
+        var readmore = $(`<h6>Read more: <a href="${link}">${link}</a></h6>`);
         
-        $('#articles-found').prepend(headline);
+        $('#articles-found').append(headline, byline, pubDate, article, readmore);
         console.log();
     }
 
