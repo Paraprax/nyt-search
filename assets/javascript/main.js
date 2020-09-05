@@ -33,13 +33,23 @@ $(document).ready(function() {
         console.log('results being formatted..');
         var headline = "";
         var byline = "";
+        var pubDate = "";
         var body = "";
+        var webURL = "";
 
         console.log(news.response.docs);
 
         for (var i = 0; i < news.response.docs.length; i++) {
             headline = news.response.docs[i].headline.main;
+            byline = news.response.docs[i].byline.original;
+            pubDate = news.response.docs[i].pub_date;
+            body = news.response.docs[i].snippet;
+            webURL = news.response.docs[i].web_url;
             console.log(headline);
+            console.log(byline);
+            console.log(pubDate);
+            console.log(body);
+            console.log(webURL);
         }
     };
 
